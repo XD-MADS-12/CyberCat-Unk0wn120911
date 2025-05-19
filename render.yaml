@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: cyber-cat-unkn0wn-backend
+    env: python
+    buildCommand: ""
+    startCommand: "python app.py"
+    plan: free
+
+  - type: web
+    name: cyber-cat-unkn0wn-frontend
+    env: static
+    staticPublishPath: dist
+    buildCommand: npm install && npm run build
+    plan: free
