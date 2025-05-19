@@ -1,3 +1,5 @@
+const backendUrl = 'https://cybercat-unk0wn.onrender.com/'; // Deployed Flask backend
+
 import React, { useState } from 'react';
 
 const tools = [
@@ -19,14 +21,14 @@ const tools = [
 export default function App() {
   const [output, setOutput] = useState('Welcome to Cyber Cat Unkn0wn Toolkit. Choose a tool above.');
   const [input, setInput] = useState('');
-  const [mode, setMode] = useState('encode'); // For base64
+  const [mode, setMode] = useState('encode');
 
   const loadTool = async (toolKey) => {
     setOutput('Processing...');
     let payload = { value: input, mode };
 
     try {
-      const res = await fetch(`http://localhost:5000/tool/${toolKey}`, {
+      const res = await fetch(`${backendUrl}tool/${toolKey}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
